@@ -1,8 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter, FaPhone } from 'react-icons/fa';
 
 const Contact = () => {
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [submitting, setSubmitting] = useState(false);
+    const [serverMessage, setServerMessage] = useState('');
+    const [serverError, setServerError] = useState('');
+
+    const validateEmail = (val) => /.+@.+\..+/.test(val);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setServerMessage('');
+        setServerError('');
+
+        if (!name || !email || !message) {
+            setServerError('Please fill in all required fields.');
+            return;
+        }
+        if (!validateEmail(email)) {
+            setServerError('Please enter a valid email address.');
+            return;
+        }
+
+        setSubmitting(true);
+        try {
+            const res = await fetch(`${API_BASE}/api/contact`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message })
+            });
+
+            if (res.status === 429) {
+                const text = await res.text();
+                setServerError(text || 'Too many requests. Please try again later.');
+            } else if (res.ok) {
+                const data = await res.json();
+                setServerMessage(data?.message || 'Thanks! Your message has been sent.');
+                setName('');
+                setEmail('');
+                setMessage('');
+            } else {
+                // Try to parse JSON error, fallback to generic
+                let errMsg = 'Failed to send message. Please try again.';
+                try {
+                    const data = await res.json();
+                    errMsg = data?.error || errMsg;
+                } catch (_) {
+                    // ignore parse errors
+                }
+                setServerError(errMsg);
+            }
+        } catch (err) {
+            setServerError('Network error. Please check your connection and try again.');
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
     return (
         <div className="w-full py-20 px-4 z-20 relative">
             <div className="max-w-7xl mx-auto">
@@ -47,24 +106,41 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    <form className="space-y-4">
+                    {serverMessage && (
+                        <div className="mb-4 text-center text-green-400">
+                            {serverMessage}
+                        </div>
+                    )}
+                    {serverError && (
+                        <div className="mb-4 text-center text-red-400">
+                            {serverError}
+                        </div>
+                    )}
+
+                    <form className="space-y-4" onSubmit={handleSubmit}>
                         <input
                             type="text"
                             placeholder="Your Name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             className="w-full bg-[#030014] border border-[#2a0e61] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
                         />
                         <input
                             type="email"
                             placeholder="Your Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             className="w-full bg-[#030014] border border-[#2a0e61] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
                         />
                         <textarea
                             rows="4"
                             placeholder="Your Message"
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
                             className="w-full bg-[#030014] border border-[#2a0e61] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors resize-none"
                         ></textarea>
-                        <button className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-bold py-3 rounded-lg hover:opacity-90 transition-opacity">
-                            Send Message
+                        <button disabled={submitting} className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-bold py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-60">
+                            {submitting ? 'Sending...' : 'Send Message'}
                         </button>
                     </form>
                 </motion.div>
