@@ -1,18 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaBriefcase, FaCode, FaRobot } from 'react-icons/fa';
+import resume from '../data/resume.json';
 
-const experiences = [
-    {
-        title: "Software Developer Intern (DUSSAP)",
-        company: "DUSSAP",
-        date: "June 2025 – Present",
-        description: "Architected and deployed 3 full-stack applications using Node.js, Django, PostgreSQL, and React Native. Designed 20+ database schemas with Sequelize and Django ORM. Built 100+ REST API endpoints handling authentication, real-time messaging, e-commerce checkout, and document management workflows. Implemented cloud infrastructure on AWS with Docker containerization and Kubernetes orchestration. Automated CI/CD pipelines using GitHub Actions achieving 40% faster deployment cycles. Integrated EC2, RDS, and S3 services with auto-scaling for 3x traffic handling capacity. Developed secure authentication systems with JWT tokens, role-based access control, and session management. Implemented OTP verification, CSRF protection, and password hashing reducing unauthorized access attempts by 95%. Built WebSocket-based messaging serving 500+ concurrent connections. Implemented Redis caching reducing database queries by 60%. Developed spatial indexing decreasing geolocation query latency by 45% with sub-200ms average response times.",
-        tech: "Node.js, Django, PostgreSQL, React Native, AWS, Docker, Kubernetes, GitHub Actions, JWT, WebSockets, Redis",
-        icon: <FaBriefcase />,
-        color: "from-purple-500 to-cyan-500"
-    }
+const gradientPalette = [
+    'from-purple-500 to-cyan-500',
+    'from-cyan-500 to-blue-500',
+    'from-blue-500 to-purple-500',
+    'from-purple-500 to-pink-500',
+    'from-pink-500 to-red-500'
 ];
+
+const experienceIcons = [FaBriefcase, FaCode, FaRobot];
+
+const experiences = (resume.experience || []).map((item, index) => {
+    const Icon = experienceIcons[index % experienceIcons.length];
+    return {
+        ...item,
+        icon: <Icon />,
+        color: gradientPalette[index % gradientPalette.length]
+    };
+});
 
 const ExperienceCard = ({ experience, index }) => {
     return (
@@ -37,6 +45,11 @@ const ExperienceCard = ({ experience, index }) => {
                 <p className="text-gray-300 text-sm leading-relaxed">
                     {experience.description}
                 </p>
+                {experience.tech?.length ? (
+                    <p className="mt-4 text-xs text-purple-200">
+                        {experience.tech.join(' • ')}
+                    </p>
+                ) : null}
             </div>
         </motion.div >
     );

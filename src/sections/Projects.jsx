@@ -1,33 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaServer, FaShoppingCart, FaRobot } from 'react-icons/fa';
+import resume from '../data/resume.json';
 
-const projects = [
-    {
-        title: "Vakalat",
-        category: "Multi-tenant Law Firm Management SaaS Platform",
-        description: "Architected multi-tenant SaaS platform with JWT authentication, role-based access control, and session management. Supports law firms with case tracking, client management, and document handling. Designed 20+ database schemas using Sequelize ORM. Built RESTful API with 50+ endpoints handling India-specific legal workflows including case management, court hierarchies, and hearing schedules. Developed collaborative features: discussions, task diaries, document repository with file uploads, and email notifications. Containerized application using Docker for deployment.",
-        tags: ["Node.js", "PostgreSQL", "Docker", "React.js", "JWT", "Sequelize"],
-        icon: <FaServer />,
-        color: "from-purple-500 to-cyan-500"
-    },
-    {
-        title: "ShopNextDoor",
-        category: "Hyperlocal E-commerce Marketplace Platform",
-        description: "Built full-stack marketplace with role-based dashboards for buyers and sellers. Implemented cart/checkout flow, OTP-based order verification, and returns management using Django REST Framework and PostgreSQL. Deployed production infrastructure on AWS with EC2 instances, RDS database, and S3 media storage. Implemented CI/CD pipelines using GitHub Actions and Kubernetes with automated health checks and rollback capabilities. Implemented secure authentication with JWT tokens. Designed RESTful APIs for product listings, order management, and customer support modules.",
-        tags: ["Django REST", "React Native", "AWS", "PostgreSQL", "Kubernetes", "GitHub Actions"],
-        icon: <FaShoppingCart />,
-        color: "from-blue-500 to-cyan-500"
-    },
-    {
-        title: "StudyBuddy",
-        category: "Collaborative Learning Platform",
-        description: "Developed real-time collaboration platform for students enabling creating and joining study groups with subject-based filtering. Includes membership approval workflows and capacity management. Built using Django 5.2 and modular app architecture. Implemented real-time messaging system with threaded discussions, user attribution, and live updates. Features group communications and activity feeds on interactive dashboards. Built secure authentication and authorization with role-based access control including CSRF protection, password hashing, custom validation logic, and profile management features.",
-        tags: ["Django", "SQLite", "WebSockets", "Materialize CSS", "Real-time"],
-        icon: <FaRobot />,
-        color: "from-green-500 to-emerald-500"
-    }
+const gradientPalette = [
+    'from-purple-500 to-cyan-500',
+    'from-blue-500 to-cyan-500',
+    'from-green-500 to-emerald-500',
+    'from-cyan-500 to-blue-500',
+    'from-purple-500 to-pink-500'
 ];
+
+const projectIcons = [FaServer, FaShoppingCart, FaRobot];
+
+const projects = (resume.projects || []).map((item, index) => {
+    const Icon = projectIcons[index % projectIcons.length];
+    return {
+        ...item,
+        icon: <Icon />,
+        color: gradientPalette[index % gradientPalette.length]
+    };
+});
 
 const ProjectCard = ({ project, index }) => {
     return (
@@ -49,16 +42,43 @@ const ProjectCard = ({ project, index }) => {
                     {project.title}
                 </h3>
 
-                <p className="text-purple-400 text-sm font-semibold mb-4 uppercase tracking-wider">
-                    {project.category}
-                </p>
+                {project.category ? (
+                    <p className="text-purple-400 text-sm font-semibold mb-4 uppercase tracking-wider">
+                        {project.category}
+                    </p>
+                ) : null}
 
                 <p className="text-gray-400 mb-6 leading-relaxed flex-grow">
                     {project.description}
                 </p>
 
+                {(project.links?.github || project.links?.live) ? (
+                    <div className="flex gap-4 mb-4">
+                        {project.links?.github ? (
+                            <a
+                                href={project.links.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 text-sm"
+                            >
+                                <FaGithub /> Code
+                            </a>
+                        ) : null}
+                        {project.links?.live ? (
+                            <a
+                                href={project.links.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 text-sm"
+                            >
+                                <FaExternalLinkAlt /> Live
+                            </a>
+                        ) : null}
+                    </div>
+                ) : null}
+
                 <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
+                    {(project.tags || []).map((tag, i) => (
                         <span key={i} className="px-3 py-1 rounded-full bg-[#2a0e61]/50 border border-[#2a0e61] text-gray-300 text-xs">
                             {tag}
                         </span>

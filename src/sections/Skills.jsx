@@ -1,49 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaTools, FaTrophy } from 'react-icons/fa';
+import resume from '../data/resume.json';
 
-const skillCategories = [
-    {
-        title: "Programming Languages",
-        skills: ["Python", "JavaScript (Node.js)", "SQL", "HTML/CSS", "Bash", "R", "C/C++"],
-        icon: <FaCode />,
-        color: "from-purple-500 to-cyan-500"
-    },
-    {
-        title: "Frameworks & Libraries",
-        skills: ["Django (REST Framework)", "Express.js", "Flask", "React.js", "React Native"],
-        icon: <FaTools />,
-        color: "from-cyan-500 to-blue-500"
-    },
-    {
-        title: "Databases",
-        skills: ["PostgreSQL", "MySQL", "Redis", "MongoDB", "SQLite", "SQLAlchemy", "PostGIS"],
-        icon: <FaCode />,
-        color: "from-blue-500 to-purple-500"
-    },
-    {
-        title: "Cloud & DevOps",
-        skills: ["AWS (EC2, RDS, S3, Lambda)", "Docker", "Kubernetes", "GitHub Actions", "Azure", "GCP"],
-        icon: <FaTools />,
-        color: "from-purple-500 to-pink-500"
-    },
-    {
-        title: "Data & ML",
-        skills: ["Apache Spark", "Snowflake", "BigQuery", "PyTorch", "TensorFlow", "Scikit-learn"],
-        icon: <FaCode />,
-        color: "from-pink-500 to-red-500"
-    },
-    {
-        title: "Tools & Technologies",
-        skills: ["Git", "Postman", "JWT", "WebSockets", "Redis", "Celery", "RabbitMQ", "Sequelize"],
-        icon: <FaTools />,
-        color: "from-red-500 to-orange-500"
-    }
+const gradientPalette = [
+    'from-purple-500 to-cyan-500',
+    'from-cyan-500 to-blue-500',
+    'from-blue-500 to-purple-500',
+    'from-purple-500 to-pink-500',
+    'from-pink-500 to-red-500',
+    'from-red-500 to-orange-500'
 ];
 
+const iconPalette = [FaCode, FaTools, FaTrophy];
 
-
-
+const skillCategories = (resume.skills || []).map((item, index) => {
+    const Icon = iconPalette[index % iconPalette.length];
+    return {
+        title: item.title,
+        skills: item.items || [],
+        icon: <Icon />,
+        color: gradientPalette[index % gradientPalette.length]
+    };
+});
 
 const Skills = () => {
     return (

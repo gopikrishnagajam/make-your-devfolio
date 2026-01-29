@@ -1,0 +1,11 @@
+services:
+  devfolio:
+    build: .
+    ports:
+      - "5173:5173"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - RESUME_PDF_PATH=/app/resume/resume.pdf
+    volumes:
+      - .:/app
+      - /app/node_modules

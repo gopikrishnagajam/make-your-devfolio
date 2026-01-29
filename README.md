@@ -1,16 +1,45 @@
-# React + Vite
+# Make Your DevFolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Turn your resume PDF into a glowing portfolio site in minutes ✨
 
-Currently, two official plugins are available:
+## Super Quick Start (just 2 commands)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1) Drop your resume here:
+`resume/resume.pdf`
 
-## React Compiler
+2) Run these two commands:
+```
+copy .env.example .env
+docker compose up --build
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Then open:
+`http://localhost:5173`
 
-## Expanding the ESLint configuration
+That’s it — the container auto-runs the AI parser and the site updates itself.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deploy to GitHub Pages
+
+1) Generate fresh resume data
+```
+npm run update-resume
+```
+
+2) Commit `src/data/resume.json` and push to `main`
+
+3) In GitHub repo settings:
+- Pages → Source: GitHub Actions
+
+The workflow at `.github/workflows/deploy.yml` will build and deploy the site.
+
+## How it works
+
+- `scripts/update-resume.mjs` parses the PDF with `pdf-parse`
+- It sends the text to Gemini and gets structured JSON
+- The JSON is saved to `src/data/resume.json`
+- UI renders directly from `src/data/resume.json`
+
+## Notes
+
+- Re-run `npm run update-resume` any time you update your resume.
+- If the PDF is missing or parsing fails, the script will exit with an error.

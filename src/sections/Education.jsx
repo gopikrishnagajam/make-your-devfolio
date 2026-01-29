@@ -1,23 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGraduationCap } from 'react-icons/fa';
+import resume from '../data/resume.json';
 
-const education = [
-    {
-        degree: "Master of Science in Data Engineering",
-        school: "Southern Methodist University",
-        date: "Expected May 2025",
-        details: "Dallas, TX",
-        color: "from-purple-500 to-cyan-500"
-    },
-    {
-        degree: "Bachelor of Technology in Electrical Engineering",
-        school: "Indian Institute of Technology Bombay",
-        date: "August 2022",
-        details: "Mumbai, India",
-        color: "from-cyan-500 to-blue-500"
-    }
+const gradientPalette = [
+    'from-purple-500 to-cyan-500',
+    'from-cyan-500 to-blue-500',
+    'from-blue-500 to-purple-500',
+    'from-purple-500 to-pink-500'
 ];
+
+const education = (resume.education || []).map((item, index) => ({
+    ...item,
+    color: gradientPalette[index % gradientPalette.length]
+}));
 
 const EducationCard = ({ edu, index }) => {
     return (

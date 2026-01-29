@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import resume from '../data/resume.json';
 
 const Hero = () => {
     return (
@@ -12,16 +13,16 @@ const Hero = () => {
                     className="flex flex-col items-center justify-center text-center"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                        Gopi Krishna Gajam
+                        {resume.basics?.name || 'Your Name'}
                     </h1>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-                            Full-Stack Software Engineer
+                            {resume.basics?.role || 'Your Role'}
                         </span>
                     </h2>
 
                     <p className="text-gray-400 text-lg md:text-xl max-w-[800px] mb-10">
-                        Full-stack software engineer with expertise in Node.js, Django, PostgreSQL, and AWS. Built 3 production applications with multi-tenant architecture, real-time messaging, CI/CD automation, and cloud deployment—handling 10K+ daily transactions with 99.9% uptime. Strong in backend development, system design, and DevOps practices.
+                        {resume.basics?.summary || 'Add a short summary about yourself.'}
                     </p>
 
                     <div className="flex gap-4">

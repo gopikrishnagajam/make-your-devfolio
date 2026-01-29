@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import resume from '../data/resume.json';
 
 const Navbar = () => {
   return (
@@ -12,7 +13,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#home" className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-          Gopi Krishna Gajam
+          {resume.basics?.name || 'Your Name'}
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -24,12 +25,21 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="https://github.com/gopikrishnagajam" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-500 transition-colors text-xl">
-            <FaGithub />
-          </a>
-          <a href="https://linkedin.com/in/gopikrishnagajam" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-500 transition-colors text-xl">
-            <FaLinkedin />
-          </a>
+          {resume.basics?.links?.github ? (
+            <a href={resume.basics.links.github} target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-500 transition-colors text-xl">
+              <FaGithub />
+            </a>
+          ) : null}
+          {resume.basics?.links?.linkedin ? (
+            <a href={resume.basics.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-500 transition-colors text-xl">
+              <FaLinkedin />
+            </a>
+          ) : null}
+          {resume.basics?.links?.twitter ? (
+            <a href={resume.basics.links.twitter} target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 transition-colors text-xl">
+              <FaTwitter />
+            </a>
+          ) : null}
         </div>
       </div>
     </motion.nav>
