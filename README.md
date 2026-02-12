@@ -7,7 +7,10 @@ Turn your resume PDF into a glowing portfolio site in minutes ✨
 1) Drop your resume here:
 `resume/resume.pdf`
 
-2) Run these two commands:
+2) Add your free tier gemini api key:
+`get it from google ai studios`
+
+3) Run these two commands:
 ```
 copy .env.example .env
 docker compose up --build
