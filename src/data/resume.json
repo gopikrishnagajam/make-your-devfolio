@@ -2,169 +2,194 @@
   "basics": {
     "name": "GOPI KRISHNA GAJAM",
     "role": "Software Engineer",
-    "summary": "Software Engineer with experience building and deploying production-grade full-stack systems and AI-powered features using Node.js, Django, PostgreSQL, and cloud platforms. Proven ability to integrate LLMs, build retrieval-augmented systems, design secure APIs, and ship scalable applications with strong focus on performance, reliability, and real-world usability.",
-    "location": "Dallas, TX",
-    "email": "ggajam@smu.edu",
+    "summary": "Software Engineer with experience building production-grade full-stack and AI-powered systems using Python, Node.js, Django, and cloud platforms (AWS & GCP). Passion for integrating LLMs, designing retrieval-augmented pipelines, building secure APIs, and optimizing performance, reliability, and cost for real-world applications.",
+    "location": "Dublin, CA",
+    "email": "gopikrishnagajam@gmail.com",
     "phone": "+1(469) 434-4746",
     "website": "https://gopikrishanagajam.com",
     "links": {
       "github": "",
-      "linkedin": "https://linkedin.com/in/gopikrishnagajam",
+      "linkedin": "linkedin",
       "twitter": "",
       "portfolio": ""
     }
   },
   "experience": [
     {
-      "title": "Software Developer Intern",
-      "company": "DUSSAP LLC",
-      "date": "June 2025 - Present",
-      "description": "Startup building web/mobile products and backend platforms with end-to-end ownership across APIs, data models, cloud deployment, CI/CD, and monitoring. Built and deployed 3 production applications using Node.js, Django, PostgreSQL, and React Native, delivering 100+ REST APIs and designing 20+ database schemas. Implemented cloud infrastructure on AWS using Docker + Kubernetes, integrating EC2, RDS, and S3 with auto-scaling. Developed secure auth and multi-tenant access controls, and owned performance improvements for WebSocket messaging and caching.",
+      "title": "Software Engineer",
+      "company": "Dussap, LLC",
+      "date": "Jan 2025 – Present",
+      "description": "Led development of production applications using Node.js, Django, PostgreSQL, and React Native, building over 100 REST APIs and designing schemas for authentication, messaging, e-commerce, and document workflows. Integrated LLM features for document summarization and workflow automation, reducing manual processing time by 35%. Optimized AI inference paths and deployed cloud infrastructure on GCP, enabling 3x traffic scaling.",
       "tech": [
         "Node.js",
         "Django",
         "PostgreSQL",
         "React Native",
-        "AWS",
+        "LLMs",
+        "GCP",
         "Docker",
         "Kubernetes",
-        "GitHub Actions",
-        "JWT",
-        "RBAC",
+        "CI/CD",
         "Redis",
         "WebSockets"
+      ]
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company": "Dussap, LLC",
+      "date": "Jan 2024 – Dec 2024",
+      "description": "Contributed to end-to-end development of a production application, implementing backend services, database schemas, and REST APIs. Gained hands-on experience with cloud deployments, real-time systems, and production debugging.",
+      "tech": [
+        "Backend",
+        "Databases",
+        "REST APIs",
+        "Cloud Deployments",
+        "Real-time Systems"
+      ]
+    },
+    {
+      "title": "Teaching Assistant – Information System Design Strategies",
+      "company": "Southern Methodist University",
+      "date": "Aug 2023 - May 2025",
+      "description": "Assisted students with system design concepts including scalability, trade-offs, and architectural patterns. Supported course delivery by reviewing design approaches and reinforcing best practices in backend and distributed system design.",
+      "tech": [
+        "System Design",
+        "Scalability",
+        "Architecture",
+        "Backend",
+        "Distributed Systems"
       ]
     }
   ],
   "education": [
     {
-      "degree": "Master of Science in Data Engineering",
+      "degree": "Master of Science in Computer Engineering - Data Engineering",
       "school": "Southern Methodist University",
       "date": "May 2025",
-      "details": "Dallas, TX"
+      "details": "Dallas, Texas"
     },
     {
       "degree": "Bachelor of Technology in Electrical Engineering",
-      "school": "Indian Institute of Technology Bombay",
+      "school": "IIT Bombay",
       "date": "Aug 2022",
       "details": "Mumbai, India"
     }
   ],
   "skills": [
     {
-      "title": "AI/ML",
-      "items": [
-        "LLMs",
-        "RAGs",
-        "Vector Search",
-        "Prompt Engineering",
-        "Model Evaluation",
-        "Output Validation"
-      ]
-    },
-    {
       "title": "Languages",
       "items": [
         "Python",
-        "JavaScript (Node.js)",
+        "JavaScript",
+        "TypeScript",
         "SQL",
         "HTML/CSS",
-        "Bash",
-        "R",
-        "C/C++"
+        "Bash"
       ]
     },
     {
-      "title": "Frameworks",
+      "title": "AI/ML",
       "items": [
-        "Django (REST Framework)",
-        "Express.js",
-        "Flask",
-        "React.js",
-        "React Native"
+        "LLMs",
+        "OpenAI API",
+        "RAGs",
+        "Langchain",
+        "FAISS",
+        "Google ADK",
+        "Pandas",
+        "Numpy",
+        "Prompt Engineering"
       ]
     },
     {
-      "title": "Databases",
+      "title": "Frameworks/Tools",
       "items": [
+        "FastAPI",
+        "Django",
+        "DRF",
+        "Node",
+        "React",
+        "Next.js",
         "PostgreSQL",
-        "MySQL",
         "Redis",
         "MongoDB",
-        "SQLite",
-        "SQLAlchemy",
-        "PostGIS"
-      ]
-    },
-    {
-      "title": "Tools",
-      "items": [
-        "OpenAI API",
-        "Google ADK",
-        "Langchain",
-        "FAISS / Vector Databases",
-        "Python (Pandas, NumPy)"
+        "MySQL"
       ]
     },
     {
       "title": "Cloud & DevOps",
       "items": [
         "AWS (EC2, RDS, S3, Lambda)",
+        "GCP (compute, RUN, SQL)",
         "Docker",
         "Kubernetes",
-        "GCP (Compute Engine, Cloud SQL, Cloud Storage, Cloud Monitoring/Logging, Firebase/FCM)"
+        "GitHub Actions"
       ]
     }
   ],
   "projects": [
     {
-      "title": "GhostWriter – AI-Powered Content Generation Platform",
-      "category": "AI/ML",
-      "description": "Built an AI-powered content generation system using large language models to generate structured long-form text based on user-defined prompts and constraints. Designed prompt templates and control strategies to guide tone, structure, and output consistency, reducing hallucinations and improving coherence. Implemented evaluation workflows to iteratively refine prompts and demonstrated an end-to-end AI pipeline.",
+      "title": "GhostWriter AI-Powered Content Generation Platform",
+      "category": "AI",
+      "description": "An end-to-end LLM-based content generation system for long-form outputs, designed with constrained prompt templates and evaluation workflows to improve output consistency and reduce hallucinations by 30%.",
       "tags": [
         "Python",
         "LLMs",
-        "Prompt Engineering",
-        "Jupyter"
+        "Prompt Engineering"
       ],
       "links": {
-        "github": "",
+        "github": "source",
         "live": ""
       }
     },
     {
-      "title": "Vakalat – Multi-tenant Law Firm Management SaaS Platform",
+      "title": "Vakalat Multi-Tenant Law Firm Management SaaS",
       "category": "SaaS",
-      "description": "Architected a multi-tenant SaaS platform with JWT authentication and role-based access control supporting law firms with case tracking, client management, and document handling. Designed database schemas and built a RESTful API with 50+ endpoints handling India-specific legal workflows. Designed backend services to support future RAG-based legal knowledge retrieval.",
+      "description": "A multi-tenant SaaS platform architected with JWT-based RBAC, over 50 REST APIs, and normalized schemas supporting India-specific legal workflows and future RAG-based document search.",
       "tags": [
         "Node.js",
         "PostgreSQL",
+        "React",
         "Docker",
-        "React.js",
         "GCP"
       ],
       "links": {
         "github": "",
-        "live": "https://indianvakalat.com"
+        "live": "live"
       }
     },
     {
-      "title": "StudyBuddy - Collaborative Learning Platform",
+      "title": "StudyBuddy Collaborative Learning Platform",
       "category": "Collaboration",
-      "description": "Built a real-time collaboration platform with study groups, subject-based filtering, and membership management using Django. Implemented real-time threaded messaging with live updates via WebSockets. Extended the platform with AI-powered study assistance for automated topic summaries and discussion insights.",
+      "description": "A platform built with real-time collaboration features including study groups, role-based access, and threaded messaging using WebSockets. Integrated AI-powered topic summarization to improve discussion discoverability.",
       "tags": [
         "Django",
         "SQLite",
         "WebSockets"
       ],
       "links": {
-        "github": "https://github.com/studybuddy",
+        "github": "source",
+        "live": ""
+      }
+    },
+    {
+      "title": "Daily DSA Article Generator (AI-Powered)",
+      "category": "AI",
+      "description": "An AI-first, cloud-ready pipeline that autonomously selects non-repeating DSA topics and generates structured one-page articles, productionized via Cloud Run Jobs with scheduled execution and persistent state.",
+      "tags": [
+        "Python",
+        "Gemini API",
+        "GCP",
+        "Cloud Run"
+      ],
+      "links": {
+        "github": "source",
         "live": ""
       }
     }
   ],
   "cta": {
     "availability": "Available for full-time roles",
-    "message": "Seeking challenging opportunities in software engineering and AI."
+    "message": "Seeking challenging opportunities to leverage AI and full-stack development skills."
   }
 }
