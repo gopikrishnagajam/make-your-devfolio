@@ -25,3 +25,10 @@ dist-ssr
 *.sw?
 .env
 resume/*.pdf
+
+# Local Codex planning/runtime files
+.codex/
+
+# Private source material used while editing the portfolio
+resources/*.pdf
+resources/my_pic.jpg

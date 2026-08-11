@@ -1,48 +1,36 @@
-# Make Your DevFolio
+# Gopi Krishna Gajam — Portfolio
 
-Turn your resume PDF into a glowing portfolio site in minutes ✨
+A static, responsive portfolio built with React and Vite. It showcases my
+experience, education, technical skills, and selected projects with animated
+cards and a Three.js star background.
 
-## Super Quick Start (just 2 commands)
+## Run locally
 
-1) Drop your resume here:
-`resume/resume.pdf`
-
-2) Add your free tier gemini api key:
-`get it from google ai studios`
-
-3) Run these two commands:
-```
-copy .env.example .env
-docker compose up --build
+```bash
+npm install
+npm run dev
 ```
 
-Then open:
-`http://localhost:5173`
+Open the local URL printed by Vite.
 
-That’s it — the container auto-runs the AI parser and the site updates itself.
+## Edit portfolio content
 
-## Deploy to GitHub Pages
+Update `src/data/portfolio.js`. All visible professional content is maintained
+directly in that file; the site has no API, database, résumé parser, or external
+content-generation step.
 
-1) Generate fresh resume data
+The deployed portrait is `public/profile.jpg`. Files in `resources/` are source
+material for editing and are intentionally excluded from Git.
+
+## Production build
+
+```bash
+npm run build
+npm run preview
 ```
-npm run update-resume
-```
 
-2) Commit `src/data/resume.json` and push to `main`
+Pushes to `main` are built and deployed to GitHub Pages by the included GitHub
+Actions workflow.
 
-3) In GitHub repo settings:
-- Pages → Source: GitHub Actions
-
-The workflow at `.github/workflows/deploy.yml` will build and deploy the site.
-
-## How it works
-
-- `scripts/update-resume.mjs` parses the PDF with `pdf-parse`
-- It sends the text to Gemini and gets structured JSON
-- The JSON is saved to `src/data/resume.json`
-- UI renders directly from `src/data/resume.json`
-
-## Notes
-
-- Re-run `npm run update-resume` any time you update your resume.
-- If the PDF is missing or parsing fails, the script will exit with an error.
+The Vite configuration uses relative production asset paths, so the site works
+both at a custom domain and under a GitHub Pages repository subpath.

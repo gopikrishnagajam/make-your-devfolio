@@ -15,12 +15,50 @@
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: 'Outfit', sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 4px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+section {
+  scroll-margin-top: 4.5rem;
+}
+
+::selection {
+  background: rgba(112, 66, 248, 0.55);
+  color: #ffffff;
 }
 
 /* Custom Scrollbar */

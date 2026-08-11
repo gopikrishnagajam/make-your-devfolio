@@ -1,14 +1,13 @@
-import React from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './sections/Hero';
-import Experience from './sections/Experience';
-import Projects from './sections/Projects';
+import Capabilities from './sections/Capabilities';
+import FeaturedWork from './sections/FeaturedWork';
+import Lab from './sections/Lab';
+import Principles from './sections/Principles';
+import Journey from './sections/Journey';
 import Contact from './sections/Contact';
 import StarsCanvas from './components/StarBackground';
-
-import Education from './sections/Education';
-import Skills from './sections/Skills';
 
 function App() {
   return (
@@ -19,19 +18,22 @@ function App() {
         <section id="home">
           <Hero />
         </section>
-        <section id="education" className="min-h-screen text-white">
-          <Education />
+        <section id="capabilities" className="text-white">
+          <Capabilities />
         </section>
-        <section id="experience" className="min-h-screen text-white">
-          <Experience />
+        <section id="work" className="text-white">
+          <FeaturedWork />
         </section>
-        <section id="skills" className="min-h-screen text-white">
-          <Skills />
+        <section id="lab" className="text-white">
+          <Lab />
         </section>
-        <section id="projects" className="min-h-screen text-white">
-          <Projects />
+        <section id="principles" className="text-white">
+          <Principles />
         </section>
-        <section id="contact" className="min-h-screen text-white">
+        <section id="journey" className="text-white">
+          <Journey />
+        </section>
+        <section id="contact" className="text-white">
           <Contact />
         </section>
       </main>
