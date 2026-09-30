@@ -4,11 +4,11 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import portfolio from '../data/portfolio';
 
 const links = [
+  ['Experience', '#journey'],
   ['Capabilities', '#capabilities'],
-  ['Work', '#work'],
-  ['Lab', '#lab'],
+  ['Projects', '#work'],
+  ['Experiments', '#lab'],
   ['Principles', '#principles'],
-  ['About', '#journey'],
 ];
 
 const Navbar = () => {

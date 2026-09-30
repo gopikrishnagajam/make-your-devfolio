@@ -7,7 +7,7 @@ const Journey = () => (
     <div className="mx-auto max-w-7xl">
       <div className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-400">Beyond the stack</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-400">Current role</p>
           <h2 className="text-4xl font-bold leading-tight text-white md:text-5xl">{portfolio.about.headline}</h2>
           <div className="mt-8 space-y-5 text-lg leading-8 text-gray-400">
             {portfolio.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}

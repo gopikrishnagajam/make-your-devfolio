@@ -18,6 +18,9 @@ function App() {
         <section id="home">
           <Hero />
         </section>
+        <section id="journey" className="text-white">
+          <Journey />
+        </section>
         <section id="capabilities" className="text-white">
           <Capabilities />
         </section>
@@ -29,9 +32,6 @@ function App() {
         </section>
         <section id="principles" className="text-white">
           <Principles />
-        </section>
-        <section id="journey" className="text-white">
-          <Journey />
         </section>
         <section id="contact" className="text-white">
           <Contact />

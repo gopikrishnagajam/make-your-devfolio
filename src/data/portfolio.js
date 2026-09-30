@@ -212,44 +212,44 @@ const portfolio = {
   ],
 
   about: {
-    headline: 'Interested in the whole path from data to decision to production.',
+    headline: 'Software engineer building backend systems, cloud deployments, and document-grounded AI at Dussap.',
     paragraphs: [
-      'My background crosses electrical engineering, graduate study in data engineering, production backend development, and applied AI. That mix makes me comfortable moving between a data-quality problem, an inference workflow, an API contract, and the cloud infrastructure supporting all three.',
-      'At Dussap, I have worked across AI-enabled services, data and schema design, authentication, messaging, geolocation, checkout, caching, real-time connections, monitoring, and AWS/GCP delivery. I like roles where understanding the surrounding system is part of solving the problem.',
-      'I am not attached to one job title. The common thread in the work I want is building dependable technical systems, learning from their behavior, and making complex capabilities useful to other people.',
+      'At Dussap, I work across greenfield backend development, product integrations, cloud migration, and production support. My day-to-day work has included REST APIs with Node.js and Express, PostgreSQL schema design with Sequelize migrations, pytest API coverage, and collaboration with frontend and cloud teams to validate contracts through release.',
+      'I have also built document-grounded AI features, including a RAG chatbot that uses company and project documentation to answer product questions and guide users to relevant marketplace pages. On IndianVakalat, I supported Docker containerization, GCP deployment, database migration, Firebase Authentication, Stripe payments, Cloudflare DNS routing, and production troubleshooting.',
+      'The through line in how I work is practical ownership: understand how the system fits together, test beyond the happy path, make schema and deployment changes repeatable, and follow issues through until production behavior is reliable.',
     ],
-    interests: ['Applied AI', 'Data platforms', 'MLOps', 'Cloud systems', 'Distributed systems', 'Developer tools', 'Teaching'],
+    interests: ['Backend architecture', 'Applied AI', 'RAG systems', 'Cloud deployments', 'Relational data modeling', 'Automated testing', 'Production debugging'],
     workingStyle: [
-      'I make data quality, failure modes, and operational constraints visible early.',
-      'I prefer small, observable releases over large invisible rewrites.',
-      'I document schemas, assumptions, and decisions so the next engineer inherits context, not mysteries.',
+      'I validate API contracts and integration behavior with the teams that depend on them.',
+      'I use tests, migrations, and repeatable setup steps to keep backend changes reliable.',
+      'I trace issues across application code, data, cloud runtime, authentication, payments, DNS, and production behavior.',
     ],
   },
 
   journey: [
     {
-      period: '2025 — Now',
-      title: 'Software Engineer',
-      place: 'Dussap, LLC',
-      summary: 'Building production AI services, APIs, data workflows, real-time systems, and cloud infrastructure across AWS and GCP.',
-    },
-    {
-      period: '2023 — 2025',
-      title: 'M.S. Computer Engineering · Data Engineering',
-      place: 'Southern Methodist University',
-      summary: 'Deepened my work in data systems while teaching system-design strategies.',
-    },
-    {
-      period: '2024',
-      title: 'Software Engineer Intern',
-      place: 'Dussap, LLC',
-      summary: 'Worked across backend services, schemas, APIs, deployment, and production debugging.',
-    },
-    {
-      period: '2022',
+      period: 'Aug 2022',
       title: 'B.Tech. Electrical Engineering',
       place: 'IIT Bombay',
-      summary: 'Built the engineering foundation that led me toward software and data systems.',
+      summary: 'Built an engineering foundation in electrical engineering before moving deeper into software, data systems, and applied AI.',
+    },
+    {
+      period: 'May 2025',
+      title: 'M.S. Computer Engineering · Data Engineering',
+      place: 'Southern Methodist University',
+      summary: 'Focused graduate study on data engineering, strengthening my work across databases, system design, cloud systems, and applied machine learning.',
+    },
+    {
+      period: 'At SMU',
+      title: 'Teaching Assistant · Information System Design Strategies',
+      place: 'Southern Methodist University',
+      summary: 'Supported students in reasoning through system design strategies, architecture trade-offs, and implementation decisions for information systems coursework.',
+    },
+    {
+      period: 'Dec 2024 — Oct 2026',
+      title: 'Software Engineer',
+      place: 'Dussap, LLC',
+      summary: 'Built and supported backend APIs, PostgreSQL schemas and migrations, pytest API coverage, document-grounded RAG features, and Docker/GCP production deployments across ShopNextDoor and IndianVakalat.',
     },
   ],
 
